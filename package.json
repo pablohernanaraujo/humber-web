@@ -1,0 +1,73 @@
+{
+  "name": "humber-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "12.3.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint \"*/**/*.{js,ts,tsx}\" --max-warnings=0",
+    "pre-push-parallel": "npm-run-all --parallel --aggregate-output test lint typescript",
+    "typescript": "tsc",
+    "styleguide": "styleguidist server --config ./styleguide/styleguide.config.js",
+    "styleguide:build": "styleguidist build --config ./styleguide/styleguide.config.js"
+  },
+  "keywords": [],
+  "author": "pablo hernan araujo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "8.2.0",
+    "firebase": "7.7.0",
+    "@testing-library/jest-dom": "5.0.2",
+    "@testing-library/react": "9.4.0",
+    "next": "9.2.0",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "styled-components": "5.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.0.2",
+    "@testing-library/react": "9.4.0",
+    "@types/jest": "24.9.0",
+    "@types/node": "13.1.8",
+    "@types/react": "16.9.17",
+    "@types/styled-components": "4.4.2",
+    "@typescript-eslint/eslint-plugin": "2.17.0",
+    "@typescript-eslint/parser": "2.17.0",
+    "babel-core": "6.26.3",
+    "babel-jest": "24.9.0",
+    "babel-plugin-styled-components": "1.10.7",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-import": "2.20.0",
+    "eslint-plugin-jest": "23.6.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.18.0",
+    "eslint-plugin-react-hooks": "2.3.0",
+    "eslint-plugin-unicorn": "15.0.1",
+    "husky": "4.2.1",
+    "jest": "24.9.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.19.1",
+    "react-docgen-typescript": "^1.20.1",
+    "react-styleguidist": "11.0.8",
+    "ts-jest": "24.3.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run pre-push-parallel"
+    }
+  }
+}
